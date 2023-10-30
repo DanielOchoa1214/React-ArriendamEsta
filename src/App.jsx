@@ -1,5 +1,4 @@
 import { ChakraProvider, extendTheme } from "@chakra-ui/react"
-import Navigation from "./components/Navigation";
 import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import { Suspense, lazy } from 'react';
 import '@fontsource-variable/raleway'
@@ -12,6 +11,23 @@ const SearchPage = lazy(() => import("./pages/SearchPage"));
 
 
 function App() {
+
+  const theme = extendTheme({
+    colors: {
+      brand: {
+        100: "#f986b7",
+        200: "#f7559a",
+        300: "#f5247d",
+        400: "#393939",
+        500: "#202020",
+        600: "#060606",
+      }
+    },
+    fonts: {
+      heading: `'Raleway Variant', sans-serif`,
+      body: `'Raleway Variant', sans-serif`,
+    },
+  })
 
   return (
     <>
