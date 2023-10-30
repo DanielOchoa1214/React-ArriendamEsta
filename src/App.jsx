@@ -15,9 +15,11 @@ function App() {
   const theme = extendTheme({
     colors: {
       brand: {
+        // Rosados
         100: "#f986b7",
         200: "#f7559a",
         300: "#f5247d",
+        // Negros
         400: "#393939",
         500: "#202020",
         600: "#060606",
