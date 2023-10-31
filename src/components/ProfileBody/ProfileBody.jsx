@@ -1,5 +1,6 @@
 import { Tab, TabList, TabPanel, TabPanels, Tabs } from "@chakra-ui/react";
 import { Suspense, lazy } from 'react';
+import Loader from "../Loader/Loader";
 const ProfileInfo = lazy(() => import("../ProfileInfo/ProfileInfo"));
 const ReviewsList = lazy(() => import("../ReviewsList/ReviewsList"));
 const PropertyList = lazy(() => import("../PropertyList/PropertyList"))
@@ -15,17 +16,17 @@ export default function ProfileBody() {
                 </TabList>
                 <TabPanels>
                     <TabPanel>
-                        <Suspense fallback="Cargando...">
+                        <Suspense fallback={<Loader/>}>
                             <ProfileInfo />
                         </Suspense>
                     </TabPanel>
                     <TabPanel>
-                        <Suspense fallback="Cargando...">
+                        <Suspense fallback={<Loader/>}>
                             <ReviewsList />
                         </Suspense>
                     </TabPanel>
                     <TabPanel>
-                        <Suspense fallback="Cargando...">
+                        <Suspense fallback={<Loader/>}>
                             <PropertyList />
                         </Suspense>
                     </TabPanel>
