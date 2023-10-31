@@ -2,6 +2,7 @@ import { ChakraProvider, extendTheme } from "@chakra-ui/react"
 import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import { Suspense, lazy } from 'react';
 import '@fontsource-variable/raleway'
+import "./App.css"
 const ProfilePage = lazy(() => import("./pages/ProfilePage"));
 const LoginPage = lazy(() => import("./pages/LoginPage"));
 const RegisterPage = lazy(() => import("./pages/RegisterPage"));
