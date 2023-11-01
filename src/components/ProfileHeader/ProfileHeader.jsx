@@ -17,7 +17,7 @@ export default function ProfileHeader() {
     return (
         <>
             <Wrap h={"50%"} spacing='60px'p={"1rem"}>
-                <Image src={profilePic} borderRadius={"full"} maxW="300px" w={"30vw"}/>
+                <Image src={profilePic} borderRadius={"500px"} maxW="300px" w={"30vw"} aspectRatio={'2 / 1'} objectFit={'cover'} />
                 <WrapItem flexDirection={"column"} justifyContent={"center"}>
                     <Heading>{userBasicInfo.name}</Heading>
                     <Text>Calificacion</Text>
