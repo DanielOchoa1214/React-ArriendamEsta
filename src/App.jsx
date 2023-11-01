@@ -5,7 +5,7 @@ import '@fontsource-variable/raleway'
 import "./App.css"
 import Loader from "./components/Loader/Loader";
 const ProfilePage = lazy(() => import("./pages/ProfilePage"));
-const LoginPage = lazy(() => import("./pages/LoginPage"));
+const LoginPage = lazy(() => import("./pages/LoginPage/loginPage"));
 const RegisterPage = lazy(() => import("./pages/RegisterPage"));
 const PublicationDetailsPage = lazy(() => import("./pages/PublicationDetailsPage"));
 const SearchPage = lazy(() => import("./pages/SearchPage"));
