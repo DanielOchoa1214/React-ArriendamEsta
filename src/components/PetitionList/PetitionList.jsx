@@ -7,7 +7,7 @@ export default function PetitionList() {
     const [petitions, setPetitions] = useState([]);
 
     useEffect(() => {
-        getPetitionsFromUser("3").then((res) => setPetitions(res));
+        getPetitionsFromUser("mojoDojoCasaHouse").then((res) => setPetitions(res));
     }, []);
 
     return (

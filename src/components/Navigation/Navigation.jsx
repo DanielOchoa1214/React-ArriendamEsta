@@ -44,7 +44,9 @@ export default function Navigation() {
                                         Cerrar sesión
                                     </Text>
                                 </Link>
-                                <Link to={"/petition"} style={{display: 'flex', alignItems:'center'}} >
+                            </ListItem>
+                            <ListItem className="drawer-text" marginBlock={4} _hover={{ color: 'brand.600', }} >
+                            <Link to={"/petition"} style={{display: 'flex', alignItems:'center'}} >
                                     <Icon as={IoArchiveOutline} marginRight={4} />
                                     <Text>
                                         Peticiones
