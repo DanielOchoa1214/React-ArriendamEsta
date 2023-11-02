@@ -1,7 +1,13 @@
-import { Card, Image, Stack, CardBody, Heading, Text } from "@chakra-ui/react";
+import { Card, Image, Stack, CardBody, Heading, Text, Button } from "@chakra-ui/react";
+import { useNavigate } from "react-router-dom";
 
 export default function Property(props) {
     const { property } = props;
+    const navigate = useNavigate();
+
+    let onDetails = () => {
+        navigate(`/publication/${property.id}`);
+    }
 
     return (
         <Card direction={{ base: 'column', sm: 'row' }} overflow='scroll' variant='outline' minH={"-webkit-max-content"} h={"20vw"} maxH={"200px"} mt={"1rem"}>
@@ -11,6 +17,7 @@ export default function Property(props) {
                         <Heading size='md'>{property.title}</Heading>
                         <Text py='2'>${property.price} pesos</Text>
                         <Text py='2'>{property.location}</Text>
+                        <Button onClick={onDetails} bg={"brand.300"} color={"white"} _hover={{bg: "brand.600"}}>Mas Detalles</Button>
                     </CardBody>
                 </Stack>
         </Card>
