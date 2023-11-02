@@ -16,7 +16,7 @@ export default function Register() {
     const onSubmit = (data) => {
         createUser(data).then((res) => {
             console.log(res);
-            setContext({id: res.id});
+            setContext(data);
         });
     };
 

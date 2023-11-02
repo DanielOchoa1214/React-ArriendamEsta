@@ -6,16 +6,18 @@ import "./App.css"
 import Loader from "./components/Loader/Loader";
 import { ArriendamEstaContext } from "./ArriendamEstaContext";
 const ProfilePage = lazy(() => import("./pages/ProfilePage"));
-const LoginPage = lazy(() => import("./pages/LoginPage/loginPage"));
+const HomePage = lazy(() => import("./pages/HomePage/HomePage"));
+const LoginPage = lazy(() => import("./pages/LoginPage"));
 const RegisterPage = lazy(() => import("./pages/RegisterPage"));
 const PublicationDetailsPage = lazy(() => import("./pages/PublicationDetailsPage"));
 const SearchPage = lazy(() => import("./pages/SearchPage"));
+const WelcomePage = lazy(() => import("./pages/WelcomePage"));
 
 
 
 function App() {
 
-  const defaultContext = useState({id: "65123726c9692445567e5652"});
+  const defaultContext = useState({ id: "65123726c9692445567e5652" });
 
   const theme = extendTheme({
     colors: {
@@ -42,17 +44,26 @@ function App() {
         <ArriendamEstaContext.Provider value={defaultContext}>
           <BrowserRouter>
             <Routes>
-              <Route index element={<Navigate to="/login" replace />} />
-              <Route path="/login" element={
+              <Route index element={<Navigate to="/home" replace />} />
+              <Route path="/home" element={
                 <Suspense fallback={<Loader />}>
-                  <LoginPage />
+                  <HomePage />
                 </Suspense>
-              } />
-              <Route path="/register" element={
+              } >
+                <Route index element={
                 <Suspense fallback={<Loader />}>
-                  <RegisterPage />
-                </Suspense>
-              } />
+                  <WelcomePage />
+                </Suspense>} />
+                <Route path="login" element={
+                  <Suspense fallback={<Loader />}>
+                    <LoginPage />
+                  </Suspense>} />
+                <Route path="register" element={
+                  <Suspense fallback={<Loader />}>
+                    <RegisterPage />
+                  </Suspense>
+                } />
+              </Route>
               <Route path="/search" element={
                 <Suspense fallback={<Loader />}>
                   <SearchPage />
@@ -71,7 +82,6 @@ function App() {
             </Routes>
           </BrowserRouter>
         </ArriendamEstaContext.Provider>
-
       </ChakraProvider>
     </>
   )
