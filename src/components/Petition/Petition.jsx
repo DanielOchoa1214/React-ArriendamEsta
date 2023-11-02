@@ -8,9 +8,8 @@ export default function Petition(props) {
             <Stack>
                     <CardBody>
                         <Heading size='md'>{petition.id}</Heading>
-                        <Text py='2'>${petition.content}</Text>
+                        <Text py='2'>{petition.content}</Text>
                         <Text py='2'>{petition.authorId}</Text>
-                        <Text py='2'>{petition.propertyId}</Text>
                     </CardBody>
             </Stack>
         </Card>
