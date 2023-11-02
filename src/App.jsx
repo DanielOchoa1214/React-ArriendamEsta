@@ -12,6 +12,8 @@ const RegisterPage = lazy(() => import("./pages/RegisterPage"));
 const PublicationDetailsPage = lazy(() => import("./pages/PublicationDetailsPage"));
 const SearchPage = lazy(() => import("./pages/SearchPage"));
 const WelcomePage = lazy(() => import("./pages/WelcomePage"));
+const PetitionPage = lazy(() => import("./pages/petitionPage"));
+
 
 
 
@@ -77,6 +79,11 @@ function App() {
               <Route path="/publication/:id" element={
                 <Suspense fallback={<Loader />}>
                   <PublicationDetailsPage />
+                </Suspense>
+              } />
+              <Route path="/petition" element={
+                <Suspense fallback={<Loader />}>
+                  <PetitionPage />
                 </Suspense>
               } />
             </Routes>
