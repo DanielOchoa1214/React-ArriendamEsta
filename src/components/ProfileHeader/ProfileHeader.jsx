@@ -1,13 +1,17 @@
 import { Box, Container, Heading, Image, Text, Wrap, WrapItem } from "@chakra-ui/react";
 import profilePic from "../../assets/profile-img.jpeg";
 import { getUser } from "../../services/UserServices";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
+import { ArriendamEstaContext } from "../../ArriendamEstaContext";
 
 export default function ProfileHeader() {
     const [userBasicInfo, setBasicInfo] = useState({});
+    const [context, setContext] = useContext(ArriendamEstaContext);
+
+    console.log(context);
 
     let onLoadProfile = () => {
-        getUser("65123726c9692445567e5652").then((res) => setBasicInfo(res))
+        getUser(context.id).then((res) => setBasicInfo(res))
     };
 
     useEffect(() => {
