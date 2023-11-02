@@ -1,7 +1,7 @@
 import { HamburgerIcon } from "@chakra-ui/icons";
 import { Button, Drawer, DrawerBody, DrawerContent, DrawerHeader, DrawerOverlay, ListItem, UnorderedList, useDisclosure, Box, Icon, Text } from "@chakra-ui/react";
 import { BiHomeAlt2 } from 'react-icons/bi';
-import { IoPersonOutline } from 'react-icons/io5';
+import { IoPersonOutline, IoArchiveOutline } from 'react-icons/io5';
 import { Link } from "react-router-dom";
 import "./Navigation.css";
 
@@ -33,6 +33,14 @@ export default function Navigation() {
                                     <Icon as={IoPersonOutline} marginRight={4} />
                                     <Text>
                                         Perfil
+                                    </Text>
+                                </Link>
+                            </ListItem>
+                            <ListItem className="drawer-text" marginBlock={4} _hover={{ color: 'brand.600', }} >
+                                <Link to={"/petition"} style={{display: 'flex', alignItems:'center'}} >
+                                    <Icon as={IoArchiveOutline} marginRight={4} />
+                                    <Text>
+                                        Peticiones
                                     </Text>
                                 </Link>
                             </ListItem>

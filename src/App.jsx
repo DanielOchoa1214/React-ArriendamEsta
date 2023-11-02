@@ -5,11 +5,13 @@ import '@fontsource-variable/raleway'
 import "./App.css"
 import Loader from "./components/Loader/Loader";
 import { ArriendamEstaContext } from "./ArriendamEstaContext";
-const ProfilePage = lazy(() => import("./pages/ProfilePage"));
+
+const ProfilePage = lazy(() => import("./pages/profilePage"));
 const LoginPage = lazy(() => import("./pages/LoginPage/loginPage"));
 const RegisterPage = lazy(() => import("./pages/RegisterPage"));
 const PublicationDetailsPage = lazy(() => import("./pages/PublicationDetailsPage"));
-const SearchPage = lazy(() => import("./pages/SearchPage"));
+const SearchPage = lazy(() => import("./pages/searchPage"));
+const PetitionPage = lazy(() => import("./pages/petitionPage"));
 
 
 
@@ -66,6 +68,11 @@ function App() {
               <Route path="/publication/:id" element={
                 <Suspense fallback={<Loader />}>
                   <PublicationDetailsPage />
+                </Suspense>
+              } />
+              <Route path="/petition" element={
+                <Suspense fallback={<Loader />}>
+                  <PetitionPage />
                 </Suspense>
               } />
             </Routes>

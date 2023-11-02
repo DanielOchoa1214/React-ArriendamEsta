@@ -9,3 +9,8 @@ export async function createPetitionForUser(petitionBody){
     body : petitionBody});
     return await res.json();
 }
+
+export async function getPetitionsFromUser(userId) {
+    const res = await fetch(`${server}/v1/petition?userPetitionId=${userId}`);
+    return await res.json();
+}
