@@ -15,3 +15,14 @@ export async function createUser(data) {
     });
     return await res.json();
 }
+
+export async function login(data){
+    const res = await fetch(`${server}/v1/auth`, {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+    });
+    return await res.json();
+}

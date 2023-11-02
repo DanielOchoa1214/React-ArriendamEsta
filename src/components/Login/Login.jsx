@@ -1,20 +1,34 @@
-import { Heading, FormControl, Box, FormLabel, Input, FormErrorMessage, Button } from "@chakra-ui/react";
+import { Heading, FormControl, Box, FormLabel, Input, FormErrorMessage, Button, Text } from "@chakra-ui/react";
 import { useForm } from "react-hook-form";
 import { ArrowBackIcon } from "@chakra-ui/icons";
+import { useNavigate } from "react-router-dom";
+import { login } from "../../services/UserServices";
+import { useContext, useState } from "react";
+import { ArriendamEstaContext } from "../../ArriendamEstaContext";
 
 export default function Login() {
 
-    const { register, handleSubmit, formState: { errors }, getValues } = useForm();
+    const { register, handleSubmit, formState: { errors } } = useForm();
+    const navigate = useNavigate();
+    const [context, setContext] = useContext(ArriendamEstaContext);
+    const [incorrectLogin, setIncorrectLogin] = useState(false);
 
     const onSubmit = (data) => {
-
+        login(data).then((res) => {
+            setContext(res);
+            setIncorrectLogin(false);
+            navigate("/search");
+        }).catch((err) => {
+            console.log(err);
+            setIncorrectLogin(true);
+            console.log("AAAA");
+        });
     };
 
 
     return (
         <>
             <form onSubmit={handleSubmit(onSubmit)}>
-                <Button><ArrowBackIcon/></Button>
                 <Heading>Login</Heading>
                 <FormControl isInvalid={errors.email}>
                     <Box>
@@ -35,6 +49,7 @@ export default function Login() {
                     </Box>
                 </FormControl>
                 <Button type="submit">Login</Button>
+                <Text>{incorrectLogin && "Usuario o contraseña incorrectos"}</Text>
             </form>
         </>
     );
