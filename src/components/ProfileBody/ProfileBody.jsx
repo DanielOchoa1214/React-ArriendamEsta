@@ -16,18 +16,18 @@ export default function ProfileBody() {
                 </TabList>
                 <TabPanels>
                     <TabPanel>
-                        <Suspense fallback={<Loader/>}>
+                        <Suspense fallback={<Loader />}>
                             <ProfileInfo />
                         </Suspense>
                     </TabPanel>
                     <TabPanel>
-                        <Suspense fallback={<Loader/>}>
+                        <Suspense fallback={<Loader />}>
                             <ReviewsList />
                         </Suspense>
                     </TabPanel>
                     <TabPanel>
-                        <Suspense fallback={<Loader/>}>
-                            <PropertyList />
+                        <Suspense fallback={<Loader />}>
+                            <PropertyList filters={{homeOwnerId: 1}}/>
                         </Suspense>
                     </TabPanel>
                 </TabPanels>
