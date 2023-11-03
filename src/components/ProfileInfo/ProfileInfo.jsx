@@ -6,7 +6,7 @@ export default function ProfileInfo() {
     const [userInfo, setInfo] = useState({});
 
     let onLoadProfile = () => {
-        getUser("65123726c9692445567e5652").then((res) => setInfo(res));
+        getUser("3").then((res) => setInfo(res));
     };
 
     const getAge = () => {
@@ -28,7 +28,7 @@ export default function ProfileInfo() {
         <>
             <TableContainer>
                 <Table variant='striped'>
-                <Tbody>
+                    <Tbody>
                         <Tr>
                             <Td>Email</Td>
                             <Td>{userInfo.email}</Td>

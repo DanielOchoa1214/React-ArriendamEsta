@@ -3,8 +3,7 @@ import { Button, Drawer, DrawerBody, DrawerContent, DrawerHeader, DrawerOverlay,
 import { BiHomeAlt2 } from 'react-icons/bi';
 import { IoPersonOutline } from 'react-icons/io5';
 import { Link } from "react-router-dom";
-
-import './Navigation.css'
+import "./Navigation.css";
 
 export default function Navigation() {
 
@@ -12,7 +11,7 @@ export default function Navigation() {
 
     return (
         <>
-            <Box className="nav-menu-button" bg={'brand.300'}>
+            <Box className="nav-menu-button" bgColor={'brand.300'}>
                 <Button borderRadius={0} variant='ghost' _hover={{ bg: 'brand.600' }} onClick={onOpen}><HamburgerIcon color={'white'} /></Button>
             </Box>
             <Drawer placement="left" onClose={onClose} isOpen={isOpen} size={"xs"} style={{ width: 'minmax(150px , 500px)'}} >

@@ -1,6 +1,5 @@
 .nav-menu-button{
     position: fixed;
-    background-color: white;
     height: 110vh;
     z-index: 999;
 }
