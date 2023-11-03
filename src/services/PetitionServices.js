@@ -14,3 +14,12 @@ export async function getPetitionsFromUser(userId) {
     const res = await fetch(`${server}/v1/petition?propertyId=${userId}`);
     return await res.json();
 }
+
+export async function updatePetitionStatus(userId, status){
+    const res = await fetch(`${server}/v1/petition/updateStatus/${userId}/${status}`, 
+    {method : 'PUT',
+    headers: {
+            'Content-Type': 'application/json',
+            },});
+    return await res.json();
+}
