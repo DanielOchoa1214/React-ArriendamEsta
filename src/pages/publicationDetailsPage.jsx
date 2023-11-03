@@ -1,8 +1,10 @@
 import Navigation from "../components/Navigation/Navigation";
-import { Container, Wrap, Heading, Text, WrapItem, Button, Popover, PopoverTrigger, PopoverBody, Box, Portal, PopoverContent, VStack, StackDivider } from "@chakra-ui/react";
+import { Container, Wrap, Heading, Text, WrapItem, Button } from "@chakra-ui/react";
 import { getPropertyById } from "../services/PropertyServices";
+import { createPetitionForUser } from "../services/PetitionServices";
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
+import RequestPopUp from "../components/RequestPopUp/RequestPopUp";
 import { getReviewsFromProperty } from "../services/ReviewServices";
 import ReviewsList from "../components/ReviewsList/ReviewsList";
 
@@ -19,6 +21,8 @@ export default function PublicationDetailsPage() {
         return "loading...";
     }
 
+    const onRequest = () => setRequested(!requested);
+
     return (
         <>
             <Navigation />
@@ -29,29 +33,12 @@ export default function PublicationDetailsPage() {
                         <Text py='2'>Valor: ${property.price} pesos</Text>
                         <Text py='2'>{property.description}</Text>
                         <Text py='2'>Metros cuadrados: {property.squareMeters}</Text>
-                        <Text py='2'>Ubicacion: {property.location}</Text>
-                        <Button onClick={() => setRequested(true)} bg={"brand.300"} color={"white"} _hover={{ bg: "brand.600" }}>Hacer Peticion</Button>
-                        <Popover>
-                            <PopoverTrigger>
-                                <Button>Hacer Peticion</Button>
-                            </PopoverTrigger>
-                            <Portal>
-                                <PopoverContent>
-                                    <PopoverBody>
-                                        <Box>
-                                            Hello. Nice to meet you! This is the body of the popover
-                                        </Box>
-                                        {requested && (<Button
-                                            mt={4}
-                                            colorScheme='blue'
-                                            onClick={setRequested(false)}
-                                        >
-                                            Close
-                                        </Button>)}
-                                    </PopoverBody>
-                                </PopoverContent>
-                            </Portal>
-                        </Popover>
+                        <Text py='2'>Ubicación: {property.location}</Text>
+                        <Button onClick={onRequest} bg={"brand.300"} color={"white"} _hover={{ bg: "brand.600" }}>Hacer Petición</Button>
+                         { requested && (
+                            <RequestPopUp property={property} isOpen={true} />
+                            )
+                         }
                     </WrapItem>
                 </Wrap>
             </Container>
