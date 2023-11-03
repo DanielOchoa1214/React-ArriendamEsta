@@ -5,10 +5,13 @@ import { PiSignOutFill } from 'react-icons/pi';
 import { IoPersonOutline, IoArchiveOutline } from 'react-icons/io5';
 import { Link } from "react-router-dom";
 import "./Navigation.css";
+import { useContext } from "react";
+import { ArriendamEstaContext } from "../../ArriendamEstaContext";
 
 export default function Navigation() {
 
     const { isOpen, onOpen, onClose } = useDisclosure();
+    const [context, setContext] = useContext(ArriendamEstaContext);
 
     return (
         <>
@@ -30,7 +33,7 @@ export default function Navigation() {
                                 </Link>
                             </ListItem>
                             <ListItem className="drawer-text" marginBlock={4} _hover={{ color: 'brand.600', }} >
-                                <Link to={"/profile"} style={{ display: 'flex', alignItems: 'center' }} >
+                                <Link to={"/profile/" + context.id} style={{ display: 'flex', alignItems: 'center' }} >
                                     <Icon as={IoPersonOutline} marginRight={4} />
                                     <Text>
                                         Perfil

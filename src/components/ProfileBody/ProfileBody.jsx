@@ -1,11 +1,15 @@
 import { Tab, TabList, TabPanel, TabPanels, Tabs } from "@chakra-ui/react";
 import { Suspense, lazy } from 'react';
 import Loader from "../Loader/Loader";
+import { useParams } from "react-router-dom";
 const ProfileInfo = lazy(() => import("../ProfileInfo/ProfileInfo"));
 const ReviewsList = lazy(() => import("../ReviewsList/ReviewsList"));
 const PropertyList = lazy(() => import("../PropertyList/PropertyList"))
 
 export default function ProfileBody() {
+
+    const { id } = useParams();
+
     return (
         <>
             <Tabs isLazy mt={"3rem"} variant='enclosed'>
@@ -22,12 +26,12 @@ export default function ProfileBody() {
                     </TabPanel>
                     <TabPanel>
                         <Suspense fallback={<Loader />}>
-                            <ReviewsList target="user" id="3"/>
+                            <ReviewsList target="user" id={id}/>
                         </Suspense>
                     </TabPanel>
                     <TabPanel>
                         <Suspense fallback={<Loader />}>
-                            <PropertyList filters={{homeOwnerId: "u1"}}/>
+                            <PropertyList filters={{homeOwnerId: id}}/>
                         </Suspense>
                     </TabPanel>
                 </TabPanels>

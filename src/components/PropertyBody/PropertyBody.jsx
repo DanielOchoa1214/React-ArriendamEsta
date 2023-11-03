@@ -73,10 +73,7 @@ export default function PropertyBody() {
                         bg={"brand.300"}
                         color={"white"}
                         _hover={{ bg: "brand.600" }}>Hacer Petición</Button>
-                    {requested && (
-                        <RequestPopUp property={property} isOpen={true} />
-                    )
-                    }
+                    {requested && (<RequestPopUp property={property} isOpen={true} />)}
                 </WrapItem>
             </Wrap>
         </>

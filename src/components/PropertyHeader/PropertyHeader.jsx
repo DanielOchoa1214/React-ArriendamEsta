@@ -19,7 +19,7 @@ export default function PropertyHeader(props){
     }
 
     let onBack = () => {
-        navigate(`/profile`);
+        navigate(-1);
     }
 
     return (

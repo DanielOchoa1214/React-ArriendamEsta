@@ -3,20 +3,19 @@ import profilePic from "../../assets/profile-img.jpeg";
 import { getUser } from "../../services/UserServices";
 import { useContext, useEffect, useState } from "react";
 import { ArriendamEstaContext } from "../../ArriendamEstaContext";
+import { useParams } from "react-router-dom";
 
 export default function ProfileHeader() {
     const [userBasicInfo, setBasicInfo] = useState({});
-    const [context, setContext] = useContext(ArriendamEstaContext);
-
-    console.log(context);
+    const { id } = useParams();
 
     let onLoadProfile = () => {
-        getUser(context.id).then((res) => setBasicInfo(res))
+        getUser(id).then((res) => setBasicInfo(res))
     };
 
     useEffect(() => {
         onLoadProfile();
-    }, [])
+    }, [id])
 
     return (
         <>
