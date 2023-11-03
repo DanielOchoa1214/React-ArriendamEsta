@@ -1,7 +1,8 @@
 import { useParams, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
-import { Wrap, WrapItem, Heading, Text, Button } from "@chakra-ui/react";
+import { Wrap, WrapItem, Heading, Text, Button, Stack } from "@chakra-ui/react";
 import { getPropertyById } from "../../services/PropertyServices";
+import { ArrowBackIcon } from "@chakra-ui/icons";
 
 export default function PropertyHeader(props){
     const { id } = useParams();
@@ -23,16 +24,19 @@ export default function PropertyHeader(props){
 
     return (
         <>
-            <Wrap h={"10%"} spacing='30px'p={"1rem"} justifyContent="space-between">
+            <Stack h={"10%"} spacing='30px'p={"1rem"} justifyContent="space-between">
                 <WrapItem>
-                    <Button onClick={onBack} bg={"brand.300"} color={"white"} _hover={{ bg: "brand.600" }}>Atras</Button>
+                    <Button 
+                    onClick={onBack} 
+                    bg={"brand.300"} 
+                    color={"white"} 
+                    _hover={{ bg: "brand.600" }}><ArrowBackIcon marginRight={3}/>Atras</Button>
                 </WrapItem>
                 <WrapItem flexDirection="column" align="flex-start">
-                    <Heading>Propiedad en arriendo</Heading>
-                    <Text as='b' fontSize='4xl' py='4'>{property.title}</Text>
+                    <Heading size={'md'}>Propiedad en arriendo</Heading>
+                    <Text as='b' fontSize='6xl'>{property.title}</Text>
                 </WrapItem>
-
-            </Wrap>
+            </Stack>
         </>
     )
 
