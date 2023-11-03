@@ -15,7 +15,7 @@ export default function RequestPopUp(props) {
 
     const onRequest = async () => {
         try{
-            const response = await createPetitionForUser(false, content, context.id, property.id);
+            const response = await createPetitionForUser(false, content, context.id, property.homeOwnerId, property.id);
             onClose();
         } catch (error) {
             console.error('Error en la solicitud:', error);
