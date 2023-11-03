@@ -1,7 +1,18 @@
 import Navigation from "../components/Navigation/Navigation";
 import { SearchBar } from "../components/SearchBar/SearchBar";
 import { Container, Grid, GridItem, Heading } from "@chakra-ui/react";
+import { getProperties } from "../services/PropertyServices";
+import { useEffect, useState } from "react";
+import PropertyList from "../components/PropertyList/PropertyList";
+
 export default function SearchPage() {
+
+    const [filters, setFilters] = useState([]);
+
+    function handleSearch(filters) {
+        setFilters(filters);
+    }
+
     return (
         <>
         <Navigation></Navigation>
@@ -18,10 +29,10 @@ export default function SearchPage() {
                     <Heading>Apartamentos</Heading>
                 </GridItem>
                 <GridItem pl='2' area={'nav'}>
-                    <SearchBar></SearchBar>
+                    <SearchBar onSearch={handleSearch}></SearchBar>
                 </GridItem>
                 <GridItem pl='2' area={'main'}>
-                    Listar Apartamentos
+                    <PropertyList filters={filters}></PropertyList>
                 </GridItem>
             </Grid>
         </Container>
