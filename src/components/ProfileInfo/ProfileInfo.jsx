@@ -1,12 +1,14 @@
 import { useEffect, useState } from "react";
 import { getUser } from "../../services/UserServices";
 import { Table, TableContainer, Tbody, Td, Tr } from "@chakra-ui/react";
+import { useParams } from "react-router-dom";
 
 export default function ProfileInfo() {
     const [userInfo, setInfo] = useState({});
+    const { id } = useParams();
 
     let onLoadProfile = () => {
-        getUser("3").then((res) => setInfo(res));
+        getUser(id).then((res) => setInfo(res));
     };
 
     const getAge = () => {
@@ -22,7 +24,7 @@ export default function ProfileInfo() {
 
     useEffect(() => {
         onLoadProfile();
-    }, []);
+    }, [id]);
 
     return (
         <>

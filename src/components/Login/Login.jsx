@@ -19,9 +19,7 @@ export default function Login() {
             setIncorrectLogin(false);
             navigate("/search");
         }).catch((err) => {
-            console.log(err);
             setIncorrectLogin(true);
-            console.log("AAAA");
         });
     };
 

@@ -12,9 +12,9 @@ export default function PublicationDetailsPage() {
         <>
             <Navigation />
             <Container maxW='90vw'>
-            <PropertyHeader />
-             <PropertyBody />
-             <ReviewsList target="property" id={id}></ReviewsList>
+                <PropertyHeader />
+                <PropertyBody />
+                <ReviewsList target="property" id={id}></ReviewsList>
             </Container>
 
         </>

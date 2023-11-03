@@ -9,7 +9,7 @@ export default function ReviewsList(props) {
 
     useEffect(() => {
         getReviews(target, id).then((res) => setReviews(res));
-    }, []);
+    }, [id]);
 
     return (
         <Box>

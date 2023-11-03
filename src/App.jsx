@@ -1,6 +1,6 @@
 import { ChakraProvider, extendTheme } from "@chakra-ui/react"
 import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
-import { Suspense, lazy, useState } from 'react';
+import { Suspense, lazy, useEffect, useState } from 'react';
 import '@fontsource-variable/raleway'
 import "./App.css"
 import Loader from "./components/Loader/Loader";
@@ -19,7 +19,12 @@ const PetitionPage = lazy(() => import("./pages/petitionPage"));
 
 function App() {
 
-  const defaultContext = useState({ id: "65123726c9692445567e5652" });
+  const defaultContext = useState(() => {
+    if (sessionStorage.getItem('context')) {
+      return JSON.parse(sessionStorage.getItem('context'));
+    }
+    return { id: "65123726c9692445567e5652" }
+  });
 
   const theme = extendTheme({
     colors: {
@@ -38,7 +43,11 @@ function App() {
       heading: `'Raleway Variant', sans-serif`,
       body: `'Raleway Variant', sans-serif`,
     },
-  })
+  });
+
+  useEffect(() => {
+    sessionStorage.setItem('context', JSON.stringify(defaultContext));
+  }, [defaultContext]);
 
   return (
     <>
@@ -53,9 +62,9 @@ function App() {
                 </Suspense>
               } >
                 <Route index element={
-                <Suspense fallback={<Loader />}>
-                  <WelcomePage />
-                </Suspense>} />
+                  <Suspense fallback={<Loader />}>
+                    <WelcomePage />
+                  </Suspense>} />
                 <Route path="login" element={
                   <Suspense fallback={<Loader />}>
                     <LoginPage />
@@ -71,7 +80,7 @@ function App() {
                   <SearchPage />
                 </Suspense>
               } />
-              <Route path="/profile" element={
+              <Route path="/profile/:id" element={
                 <Suspense fallback={<Loader />}>
                   <ProfilePage />
                 </Suspense>
