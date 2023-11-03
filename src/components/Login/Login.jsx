@@ -15,6 +15,7 @@ export default function Login() {
 
     const onSubmit = (data) => {
         login(data).then((res) => {
+            console.log(res);
             setContext(res);
             setIncorrectLogin(false);
             navigate("/search");

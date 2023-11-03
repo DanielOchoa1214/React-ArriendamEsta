@@ -46,7 +46,8 @@ function App() {
   });
 
   useEffect(() => {
-    sessionStorage.setItem('context', JSON.stringify(defaultContext));
+    console.log(defaultContext);
+    sessionStorage.setItem('context', JSON.stringify(defaultContext[0]));
   }, [defaultContext]);
 
   return (
