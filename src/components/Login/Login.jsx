@@ -29,11 +29,16 @@ export default function Login() {
     return (
         <>
             <form onSubmit={handleSubmit(onSubmit)}>
-                <Heading>Login</Heading>
+                <Heading textAlign={'center'}>Login</Heading>
                 <FormControl isInvalid={errors.email}>
                     <Box>
-                        <FormLabel htmlFor="email">Correo</FormLabel>
-                        <Input id="email" {...register("email", {
+                        <FormLabel 
+                        fontWeight={600}
+                        marginBlock={'1rem 0'}
+                        htmlFor="email">Correo</FormLabel>
+                        <Input 
+                        _focusVisible={{borderColor:'#f5247d'}}
+                        id="email" {...register("email", {
                             required: "El email es obligatorio"
                         })} />
                         <FormErrorMessage>{errors.email && errors.email.message}</FormErrorMessage>
@@ -41,14 +46,25 @@ export default function Login() {
                 </FormControl>
                 <FormControl isInvalid={errors.password}>
                     <Box>
-                        <FormLabel htmlFor="password">Contraseña</FormLabel>
-                        <Input id="password" {...register("password", {
+                        <FormLabel 
+                        fontWeight={600}
+                        marginBlock={'1rem 0'}
+                        htmlFor="password">Contraseña</FormLabel>
+                        <Input 
+                        type='password'
+                        color={'brand.300'}
+                        _focusVisible={{borderColor:'#f5247d'}}
+                        id="password" {...register("password", {
                             required: "La contraseña es obligatoria"
                         })} />
                         <FormErrorMessage>{errors.password && errors.password.message}</FormErrorMessage>
                     </Box>
                 </FormControl>
-                <Button type="submit">Login</Button>
+                <Button 
+                marginTop={7}
+                w={'100%'}
+                _hover={{bg: 'brand.300', color: 'white'}}
+                type="submit">Login</Button>
                 <Text>{incorrectLogin && "Usuario o contraseña incorrectos"}</Text>
             </form>
         </>

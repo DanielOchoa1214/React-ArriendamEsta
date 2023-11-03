@@ -15,14 +15,14 @@ export default function Navigation() {
             <Box className="nav-menu-button" bgColor={'brand.300'}>
                 <Button borderRadius={0} variant='ghost' _hover={{ bg: 'brand.600' }} onClick={onOpen}><HamburgerIcon color={'white'} /></Button>
             </Box>
-            <Drawer placement="left" onClose={onClose} isOpen={isOpen} size={"xs"} style={{ width: 'minmax(150px , 500px)'}} >
+            <Drawer placement="left" onClose={onClose} isOpen={isOpen} size={"xs"} style={{ width: 'minmax(150px , 500px)' }} >
                 <DrawerOverlay />
-                <DrawerContent bgColor="brand.300" style={{ maxWidth: '200px'}}>
+                <DrawerContent bgColor="brand.300" style={{ maxWidth: '200px' }}>
                     <DrawerHeader className="drawer-text">Menu</DrawerHeader>
                     <DrawerBody >
                         <UnorderedList listStyleType={"none"}>
                             <ListItem className="drawer-text" marginBlock={4} _hover={{ color: 'brand.600', }} >
-                                <Link to={"/search"} style={{display: 'flex', alignItems:'center'}} >
+                                <Link to={"/search"} style={{ display: 'flex', alignItems: 'center' }} >
                                     <Icon as={BiHomeAlt2} marginRight={4} />
                                     <Text>
                                         Inicio
@@ -30,7 +30,7 @@ export default function Navigation() {
                                 </Link>
                             </ListItem>
                             <ListItem className="drawer-text" marginBlock={4} _hover={{ color: 'brand.600', }} >
-                                <Link to={"/profile"} style={{display: 'flex', alignItems:'center'}} >
+                                <Link to={"/profile"} style={{ display: 'flex', alignItems: 'center' }} >
                                     <Icon as={IoPersonOutline} marginRight={4} />
                                     <Text>
                                         Perfil
@@ -38,16 +38,18 @@ export default function Navigation() {
                                 </Link>
                             </ListItem>
                             <ListItem className="drawer-text" marginBlock={4} _hover={{ color: 'brand.600', }} >
-                                <Link to={"/home"} style={{display: 'flex', alignItems:'center'}} >
-                                    <Icon as={PiSignOutFill} marginRight={4} />
-                                    <Text>
-                                        Cerrar sesión
-                                    </Text>
-                                </Link>
-                                <Link to={"/petition"} style={{display: 'flex', alignItems:'center'}} >
+                                <Link to={"/petition"} style={{ display: 'flex', alignItems: 'center' }} >
                                     <Icon as={IoArchiveOutline} marginRight={4} />
                                     <Text>
                                         Peticiones
+                                    </Text>
+                                </Link>
+                            </ListItem>
+                            <ListItem className="drawer-text" marginBlock={4} _hover={{ color: 'brand.600', }} >
+                                <Link to={"/home"} style={{ display: 'flex', alignItems: 'center' }} >
+                                    <Icon as={PiSignOutFill} marginRight={4} />
+                                    <Text>
+                                        Cerrar sesión
                                     </Text>
                                 </Link>
                             </ListItem>
