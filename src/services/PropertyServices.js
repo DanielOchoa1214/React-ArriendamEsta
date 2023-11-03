@@ -12,6 +12,7 @@ export async function getProperties(filters) {
             url += `${key}=${filters[key]}&`
         }
     });
+    console.log(url);
     const res = await fetch(url);
     return await res.json();
 };

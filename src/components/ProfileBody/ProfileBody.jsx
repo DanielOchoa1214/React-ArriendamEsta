@@ -27,7 +27,7 @@ export default function ProfileBody() {
                     </TabPanel>
                     <TabPanel>
                         <Suspense fallback={<Loader />}>
-                            <PropertyList filters={{homeOwnerId: 1}}/>
+                            <PropertyList filters={{homeOwnerId: "u1"}}/>
                         </Suspense>
                     </TabPanel>
                 </TabPanels>

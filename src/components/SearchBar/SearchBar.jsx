@@ -6,7 +6,7 @@ import { useState } from "react";
 export const SearchBar = (props) => {
     const { onSearch } = props;
     const neighborhoods = ["Suba", "Usme", "Fontibon", "Simon Bolivar", "en barbiland"];
-    const states = ["Rentado", "Sin rentar", "No definido"];
+    const states = { "Rentado": "RENTED", "Sin rentar": "NOT_RENTED", "No definido": "STAND_BY" };
     const [ubication, setUbication] = useState();
     const [state, setState] = useState();
     const [size, setSize] = useState();
@@ -17,7 +17,7 @@ export const SearchBar = (props) => {
     };
 
     function handleState(event) {
-        setState(event.target.value);
+        setState(states[event.target.value]);
     };
 
     function handleSize(event) {
@@ -38,16 +38,17 @@ export const SearchBar = (props) => {
         <form onSubmit={onSubmit}>
             <FormControl>
                 <FormLabel htmlFor="ubi"><Text as="b">Ubicación</Text></FormLabel>
-                <Select id="ubi" variant='filled' placeholder='Ubicación' onChange={handleUbication}>
+                <Select id="ubi" variant='filled' placeholder='Todos' onChange={handleUbication}>
                     {neighborhoods.map((neighborhood) =>
                         <option key={neighborhood}>{neighborhood}</option>
                     )}
                 </Select>
                 <FormLabel htmlFor="state"><Text as="b">Estado del apartamento</Text></FormLabel>
-                <Select id="state" variant='filled' placeholder='Estado' onChange={handleState}>
-                    {states.map((state) =>
-                        <option key={state}>{state}</option>
-                    )}
+                <Select id="state" variant='filled' placeholder='Todos' onChange={handleState}>
+                    {
+                        Object.keys(states).map((key) =>
+                            <option key={key}>{key}</option>)
+                    }
                 </Select>
                 <FormLabel htmlFor="size" as="b"><Text as="b">Tamaño del apartamento</Text></FormLabel>
                 <Input id="size" type="number" variant='filled' placeholder="Metros cuadrados" onChange={handleSize}></Input>

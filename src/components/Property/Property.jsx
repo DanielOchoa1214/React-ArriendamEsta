@@ -15,8 +15,9 @@ export default function Property(props) {
             <Stack>
                     <CardBody>
                         <Heading size='md'>{property.title}</Heading>
-                        <Text py='2'>${property.price} pesos</Text>
-                        <Text py='2'>{property.location}</Text>
+                        <Text py='2'>Precio: ${property.price} pesos</Text>
+                        <Text py='2'>Ubicación: {property.location}</Text>
+                        <Text py='2'>Metros Cuadrados: {property.squareMeters}</Text>
                         <Button onClick={onDetails} bg={"brand.300"} color={"white"} _hover={{bg: "brand.600"}}>Mas Detalles</Button>
                     </CardBody>
                 </Stack>
