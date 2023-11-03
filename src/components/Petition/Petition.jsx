@@ -20,6 +20,7 @@ export default function Petition(props) {
                     <Heading size='md'>{petition.id}</Heading>
                     <Text py='2'>{petition.content}</Text>
                     <Text py='2'>{petition.authorId}</Text>
+                    <Text py='2'>{petition.propertyId}</Text>
                     <Button onClick={onAccept} bg={"brand.300"} color={"white"} _hover={{ bg: "brand.600" }}>aceptar</Button>
                     <Button onClick={onDenied} bg={"brand.300"} color={"white"} _hover={{ bg: "brand.600" }}>rechazar</Button>
                 </CardBody>
