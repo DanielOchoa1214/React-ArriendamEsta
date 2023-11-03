@@ -1,6 +1,6 @@
 const server = "http://localhost:8080"
 
-export async function createPetitionForUser(aceptedValue, contentValue, authorid, propertyid){
+export async function createPetitionForUser(aceptedValue, contentValue, authorid, homeOwnerId, propertyid){
     const res = await fetch(`${server}/v1/petition`, {
     method : 'POST',
     headers: {
@@ -10,6 +10,7 @@ export async function createPetitionForUser(aceptedValue, contentValue, authorid
             acepted : aceptedValue,
             content : contentValue,
             authorId : authorid,
+            ownerId : homeOwnerId,
             propertyId : propertyid
             }),
     });
