@@ -4,7 +4,7 @@ import { ArrowBackIcon } from "@chakra-ui/icons";
 import { useNavigate } from "react-router-dom";
 
 
-export default function LoginPage(){
+export default function LoginPage() {
 
     const navigate = useNavigate();
 
@@ -14,8 +14,14 @@ export default function LoginPage(){
 
     return (
         <>
-            <Button onClick={onBack}><ArrowBackIcon/></Button>
-            <Login/>
+            <Login />
+            <Button
+                color={'white'}
+                w={'100%'}
+                marginTop={2}
+                variant='outline'
+                _hover={{ color: '#fff', background: 'brand.500' }}
+                onClick={onBack}><ArrowBackIcon marginRight={2}/> Volver</Button>
         </>
     );
 }
