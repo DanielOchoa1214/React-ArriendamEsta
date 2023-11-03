@@ -17,7 +17,12 @@ export async function createPetitionForUser(aceptedValue, contentValue, authorid
 }
 
 export async function getPetitionsFromUser(userId) {
-    const res = await fetch(`${server}/v1/petition?propertyId=${userId}`);
+    const res = await fetch(`${server}/v1/petition?ownerId=${userId}`);
+    return await res.json();
+}
+
+export async function getPetitionstoUser(userId) {
+    const res = await fetch(`${server}/v1/petition?authorId=${userId}`);
     return await res.json();
 }
 
