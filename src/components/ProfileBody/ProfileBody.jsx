@@ -22,7 +22,7 @@ export default function ProfileBody() {
                     </TabPanel>
                     <TabPanel>
                         <Suspense fallback={<Loader />}>
-                            <ReviewsList />
+                            <ReviewsList target="user" id="3"/>
                         </Suspense>
                     </TabPanel>
                     <TabPanel>
