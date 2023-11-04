@@ -1,5 +1,5 @@
 import Navigation from "../components/Navigation/Navigation";
-import { Container } from "@chakra-ui/react";
+import { Container, Divider } from "@chakra-ui/react";
 import { useParams } from "react-router-dom";
 import PropertyBody from "../components/PropertyBody/PropertyBody";
 import PropertyHeader from "../components/PropertyHeader/PropertyHeader";
@@ -14,9 +14,9 @@ export default function PublicationDetailsPage() {
             <Container maxW='90vw'>
                 <PropertyHeader />
                 <PropertyBody />
+                <Divider borderColor={"brand.300"} h={'2px'} opacity={'1'} marginBottom={8}/>
                 <ReviewsList target="property" id={id}></ReviewsList>
             </Container>
-
         </>
     );
 }

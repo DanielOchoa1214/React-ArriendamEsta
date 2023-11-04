@@ -12,7 +12,7 @@ export default function ReviewsList(props) {
     }, [id]);
 
     return (
-        <Box>
+        <Box mb={8}>
             <Text as='b' fontSize='3xl' py='4'>Valoraciones</Text>
             <UnorderedList listStyleType={"none"}>
                 {reviews.map((review, key) => (
