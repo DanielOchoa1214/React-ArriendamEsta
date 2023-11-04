@@ -38,25 +38,68 @@ export const SearchBar = (props) => {
         <form onSubmit={onSubmit}>
             <FormControl>
                 <FormLabel htmlFor="ubi"><Text as="b">Ubicación</Text></FormLabel>
-                <Select id="ubi" variant='filled' placeholder='Todos' onChange={handleUbication}>
+                <Select 
+                color={'brand.400'}
+                _hover={{bg:'brand.100'}}
+                _focusVisible={{borderColor:'brand.300'}}
+                id="ubi" 
+                variant='filled' 
+                placeholder='Todos' 
+                onChange={handleUbication}>
                     {neighborhoods.map((neighborhood) =>
                         <option key={neighborhood}>{neighborhood}</option>
                     )}
                 </Select>
                 <FormLabel htmlFor="state"><Text as="b">Estado del apartamento</Text></FormLabel>
-                <Select id="state" variant='filled' placeholder='Todos' onChange={handleState}>
+                <Select 
+                color={'brand.400'}
+                _hover={{bg:'brand.100'}}
+                _focusVisible={{borderColor:'brand.300'}}
+                id="state" 
+                variant='filled' 
+                placeholder='Todos' 
+                onChange={handleState}>
                     {
                         Object.keys(states).map((key) =>
                             <option key={key}>{key}</option>)
                     }
                 </Select>
                 <FormLabel htmlFor="size" as="b"><Text as="b">Tamaño del apartamento</Text></FormLabel>
-                <Input id="size" type="number" variant='filled' placeholder="Metros cuadrados" onChange={handleSize}></Input>
+                <Input 
+                _placeholder={{color:'brand.400'}}
+                color={'brand.600'}
+                _hover={{bg:'brand.100'}}
+                _focusVisible={{borderColor:'brand.300'}}
+                id="size" 
+                type="number" 
+                variant='filled' 
+                placeholder="Metros cuadrados" 
+                onChange={handleSize}></Input>
                 <FormLabel htmlFor="price"><Text as="b">Precio</Text></FormLabel>
-                <Input id="price" type="number" variant='filled' placeholder="Precio" onChange={handlePrice}></Input>
+                <Input 
+                _placeholder={{color:'brand.400'}}
+                color={'brand.600'}
+                _hover={{bg:'brand.100'}}
+                _focusVisible={{borderColor:'brand.300'}}
+                id="price" 
+                type="number" 
+                variant='filled' 
+                placeholder="Precio" 
+                onChange={handlePrice}></Input>
             </FormControl>
             <Center>
-                <IconButton mt={4} aria-label='Search database' icon={<SearchIcon />} colorScheme="blue" type="submit" width={"100px"}></IconButton>
+                <IconButton 
+                mt={4} 
+                aria-label='Search database' 
+                icon={<SearchIcon />} 
+                colorScheme="blue" 
+                bg={'brand.300'}
+                outline={'2px solid'}
+                outlineColor={'brand.300'}
+                outlineOffset={'3px'}
+                _hover={{bg:'brand.500', outlineColor:'brand.500'}}
+                type="submit" 
+                width={"100px"}></IconButton>
             </Center>
         </form>
     );
